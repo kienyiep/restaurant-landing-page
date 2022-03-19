@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<!-- the lang attribute sill say this page is in english -->
+<html lang="en">
+    <head>
+        <!-- here is where we will include the content type tag, this is just used to declare the character encoding of the website
+             but it does not include the ranking, so it has nothing to do with the search engine optimization.  -->
+        <meta charset="utf-8">
+          <!-- the meta tag is essential when you make the responsive web design. -->
+          <!-- so all that this will do is to tell the mobile phone that they should not zoom out the page, 
+          so that they should always start with the scale of 1.  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Omnifood is a premium food delivery service with the mission to bring affordable
+         and health meal to as many people as possible. ">
+        <!-----------------------------------------------------------------------------------------------------
+        Normalize.css makes browsers render all elements more consistently and in line with modern standards.
+        It precisely targets only the styles that need normalizing.
+        So it is a css reset that make the css looks the same in all browser 
+        ------------------------------------------------------------------------------------------------------->
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css" >
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css" >
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css" >
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicon.min.css" >
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+        <!----------------------------------------------------------------------------------------------------- 
+        This google font is actually just a css file, which we use here in our project.
+        but it is not a file that we download, it is a file that is in the internet. 
+        ------------------------------------------------------------------------------------------------------->
+        <title>Omnifood</title>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/resources/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/resources/favicons/site.webmanifest">
+        <link rel="mask-icon" href="/resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/resources/favicons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="/resources/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <body>
+        <!---------------------------------------------------------------------------------------------------------
+        The header is where we will put the logo, the navigation, the hero image,
+        the main heading and those buttons that I showed you in the image before. 
+         
+        The header element works bascially like a usual div element, 
+        which mean that is a container to put some content. 
+        There are other element like that such as nav for navigation, footer element for the footer, 
+        and the main element for the main content.
+
+        By using the header element, instead of simple div element, we tell serach engine such as google
+        this is our header, and not some simple div element with no meanig, so this give our container a meaning.
+         ---------------------------------------------------------------------------------------------------------->
+        <header>
+           <!-- The nav element is where the navigation and button will go. 
+           Now to center everything inside of the navigation, I will use a row. 
+             -->
+
+             <!-- here is the nav element, where we will use the j query to add the sticky class.  -->
+            <nav>
+                <div class="row">
+                    <img src="resources/img/logo-white.png" alt="Omnifood logo" class="logo">
+                    <img src="resources/img/logo.png" alt="Omnifood logo" class="logo-black">
+
+                    <!-- The navigation is usually using so called unordered list. 
+                    unordered list is just like some bullet point,
+                    where each bullet points will be an element of the  navigation. -->
+                    <ul class="main-nav js--main-nav"> 
+                        <!-- For each of the element inside of the unordered list, we say li, 
+                            which mean like list element.  -->
+                        <!-- each of the list element will be the a link, 
+                            as the navigation is like the collection of the link -->
+                        <li> <a href="#features">Food delivery</a></li>
+                        <li> <a href="#works">How it works</a></li>
+                        <li> <a href="#cities">Our Cities</a></li>
+                        <li> <a href="#plans">Sign up</a></li>
+                    </ul>
+
+                     <!-- if we do not specify the href attribute then we do not have any pointer. -->
+                    <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+                </div>
+
+            </nav>
+            <!-- we will have a vertically and horizontally centered container where that headline will be. 
+            so let's first make the div element for that container.
+        
+            This is the text box which flow over the hero image, which is the big background image, 
+            and this is the box that we will center is a minute using the css-->
+            <div class="hero-text-box"> 
+                <h1>Goodbye junk food. <br> Hello super healthy meals.</h1>
+                <a class="btn btn-full js--scroll-to-plan" href="#" >I’m hungry</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#" >Show me more </a>
+            </div>
+            <!-- For the button, we will use the link element,
+             and then we will style with css to look them look like a nice designed button. -->
+          
+
+        </header>
+        <!-- the section is just like the header, which is a container. -->
+
+        <!-- we could go ahead and use this class name, but we want a cleaner seperation between css and javascript, and the j query, 
+        so we dont want to mix up this two things, so we will create a seperate class for javascript.   -->
+        <section class = "section-features js--section-features" id="features">
+           <div class="row">
+                <!-- each web page should only have one h1 element, 
+                which mean one main headings we already use one main heading previously,
+                so for now in each of the sections, we will put a h2 title. -->
+
+                <!-- instead of this small dash, I will want a larger dash, which is a m dash.
+                In the html, we actually got the thing called HTML special character or special entities.
+                To write those, we start with & and then mdash, 
+                and you can find lots of tables on the internet about this. 
+                and a link is also included inside the course e book where you can find lots of html entities.
+                -->
+                <h2>Get food fast &mdash; not fast food</h2>
+                <p class="long-copy">
+                    Hello, we’re Omnifood, your new premium food delivery service.
+                    We know you’re always busy. No time for cooking. 
+                    So let us take care of that,we’re really good at it, we promise!   
+                </p>
+            </div>
+                  <!-- Here is where we will start to use the grid like a pro -->
+                <div class="row js--wp-1">
+                    <!-- each column need a col class, which is already come from the grid.css class, 
+                         and each column need a col class.  -->
+
+                       <!-- Since we have 4 column, 
+                        so each of this 4 column will have the class which is span-1-of-4.
+                        If we check on the grid.css file,
+                        you will see that each of out 4 column will have a 23.8 percent of width -->
+                    <div class="col span-1-of-4 box">
+                        <i class="ion-ios-infinite icon-big"></i>
+                        <!-- we already use h1 and h2, so here we will use h3. 
+                             which will be the title for the feature -->
+                       
+                        <h3>
+                            Up to 365 days/year
+                        </h3>
+                        <p> Never cook again! We really mean that. 
+                            Our subscription plans include up to 365 days/year coverage.
+                            You can also choose to order more flexibly if that's your style.
+                        </p>
+                    </div>
+                     <!-- we should never change the classes which come from our grid, 
+                     what we can do here is to add another class, and then format that class, 
+                     and then I will call it box, because it is like a box where all the feature go.  -->
+                    <div class="col span-1-of-4 box">
+                       <i class="ion-ios-stopwatch icon-big"></i>
+                       
+                        <h3>
+                            Ready in 20 minutes
+                        </h3>
+                        <p>
+                            You're only twenty minutes away from your delicious 
+                            and super healthy meals delivered right to your home. 
+                            We work with the best chefs in each town to ensure that you're 100% happy.
+                        </p>
+                    </div>
+
+                    <div class="col span-1-of-4 box">
+                        <i class="ion-ios-nutrition icon-big"></i>
+                        <h3>
+                            100% organic
+                        </h3>
+                        <p>
+                            All our vegetables are fresh, organic and local.
+                            Animals are raised without added hormones or antibiotics. 
+                            Good for your health, the environment, and it also tastes better!
+                        </p>
+                    </div>
+
+                    <div class="col span-1-of-4 box">
+                        <i class="ion-ios-cart icon-big"></i>
+                        <h3>
+                            Order anything
+                        </h3>
+                        <p> 
+                            We don't limit your creativity, which means you can order whatever you feel like.
+                            You can also choose from our menu containing over 100 delicious meals. It's up to you!
+                        </p>
+                    </div>
+                </div>
+          </section>
+          <!-- here is where we will put 2 row with 4 images in each row. 
+          As I said we will not use the row class here, because we dont want a centered row with some images.
+          But we want the images to occupy the 100% of the browser width. 
+          Hence ,we will use the unordered list to do so, and we will use two unordered list, one for each line. 
+          which is same like the navigation, put some stuff in th unordered list, for example those 4 links in navigation,
+          or these images that we are gonna use now, then just throw the images onto that website.  -->
+          <section class="section-meals">
+              <!-- we will use the clear fix class here, 
+              because the child element of this class 
+              which are the li element are the one who got the float property. -->
+
+              <!-- so we say the parent has this clearfix class
+               and then the float will be cleared right after the ul element.
+            we can confirm this by using the web development tool, and inspect the element, 
+            then we can see the height of the section meal is no longer 0, and it has 546 pixel height. -->
+                <ul class="meals-showcase clearfix">
+                    <!-- figure is also like a container, which can contain an image and caption of image.
+                         In this case, we will only image inside of this contianer but no caption.
+                        But to use caption, you can use the element called <figcaption>   -->
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/1.jpg" alt="Korean bibimbap with egg and vegetables"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/2.jpg" alt="Simple italian pizza with cherry tomatoes"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/3.jpg" alt="Chicken breast steak with vegetables"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/4.jpg" alt="Autumn pumpkin soup"></figure> 
+                    </li>
+                </ul>
+
+                <ul class="meals-showcase clearfix">
+                    
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/5.jpg" alt="Paleo beef steak with vegetables"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/6.jpg" alt="Healthy baguette with egg and vegetables"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/7.jpg" alt="Burger with cheddar and bacon"></figure> 
+                    </li>
+
+                    <li> 
+                        <figure class="meal-photo"><img src="resources/img/8.jpg" alt="Granola with cherries and strawberries"></figure> 
+                    </li>
+                </ul>
+          </section>
+
+          <section class="section-steps" id="works">
+              <div class="row">
+                  <h2>
+                    How it works &mdash; Simple as 1, 2, 3 
+                  </h2>
+              </div>
+
+              <div class="row">
+                <div class= "col span-1-of-2 steps-box">
+                    <img src="resources/img/app-iPhone.png" alt="Omnifood app on iphone" class="app-screen js--wp-2" >
+                </div>
+
+                <div class= "col span-1-of-2 steps-box">
+                    <div class="works-step">
+                        <div>1</div>
+                        <p>
+                            Choose the subscription plan that best fits your needs and sign up today.
+                        </p>
+                    </div>
+
+                    <div class="works-step">
+                        <div>2</div>
+                        <p>
+                            Order your delicious meal using our mobile app or website. Or you can even call us!
+                        </p>
+                    </div>
+
+                    <div class="works-step">
+                        <div>3</div>
+                        <p>
+                            Enjoy your meal after less than 20 minutes. See you the next time!
+                        </p>
+                    </div>
+
+
+                      <!-- instead of putting some text here, we will put an image, that image will serve as the button. -->
+                      <!-- we already have those images in pur folder, but we can easily get from the internet, 
+                      for instance, the button for the app store, you can just get it from the apple website.  -->
+                    <a href="#" class="btn-app">
+                        <img src="resources/img/download-app.svg" alt="App store button" >
+                    </a>
+                    <a href="#" class="btn-app">
+                        <img src="resources/img/download-app-android.png" alt="Play store button" >
+                    </a>
+                    
+                </div>
+              </div>
+          </section>
+
+          <section class="section-cities" id="cities">
+                <div class="row">  
+                  <h2>We're currently in these cities</h2>
+                </div>
+
+                <div class="row js--wp-3">
+                    <div class="col span-1-of-4 box">
+                        <img src="resources/img/lisbon-3.jpg" alt="lisbon-3">
+                        <h3>Lisbon</h3>
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-person icon-small"></i> -->
+                                <ion-icon name="person" class="icon-small"></ion-icon>
+                                1600+ happy eaters 
+                                <!-- <br>
+                                <ion-icon name="star" class="icon-small"></ion-icon>
+                                60+ top chefs  -->
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-star icon-small"></i> -->
+                                <ion-icon name="star" class="icon-small"></ion-icon>
+                                60+ top chefs 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-social-twitter icon-small"></i> -->
+                                <ion-icon name="logo-twitter" class="icon-small"></ion-icon>
+                                <a href="#"> @omnifood_lx</a>
+                            </div>
+                    </div>
+
+                    <div class="col span-1-of-4 box">
+                        <img src="resources/img/san-francisco.jpg" alt="san-francisco">
+                        <h3>San Francisco</h3>
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-person icon-small"></i> -->
+                                <ion-icon name="person" class="icon-small"></ion-icon>
+                                3700+ happy eaters
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-star icon-small"></i> -->
+                                <ion-icon name="star" class="icon-small"></ion-icon>
+                                160+ top chefs 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-social-twitter icon-small"></i> -->
+                                <ion-icon name="logo-twitter" class="icon-small"></ion-icon>
+                                <a href="#"> @omnifood_sf</a>
+                            </div>
+                    </div>
+
+
+                    <div class="col span-1-of-4 box">
+                        <img src="resources/img/berlin.jpg" alt="berlin">
+                        <h3>Berlin</h3>
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-person icon-small"></i> -->
+                                <ion-icon name="person" class="icon-small"></ion-icon>
+                                2300+ happy eaters 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-star icon-small"></i> -->
+                                <ion-icon name="star" class="icon-small"></ion-icon>
+                                110+ top chefs 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-social-twitter icon-small"></i> -->
+                                <ion-icon name="logo-twitter" class="icon-small"></ion-icon>
+                                <a href="#"> @omnifood_berlin</a>
+                            </div>
+                    </div>
+
+                    <div class="col span-1-of-4 box">
+                        <img src="resources/img/london.jpg" alt="london">
+                        <h3>London</h3>
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-person icon-small"></i> -->
+                                <ion-icon name="person" class="icon-small"></ion-icon>
+                                1200+ happy eaters 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-ios-star icon-small"></i> -->
+                                <ion-icon name="star" class="icon-small"></ion-icon>
+                                50+ top chefs 
+                            </div>
+
+                            <div class="city-feature">
+                                <!-- <i class="ion-social-twitter icon-small"></i> -->
+                                <ion-icon name="logo-twitter" class="icon-small"></ion-icon>
+                                <a href="#"> @omnifood_london</a>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+          <section class="section-testimonials">
+           <div class="row">
+               <h2>Our customers can't live without us</h2>
+           </div>
+
+           <div class="row">
+                <div class="col span-1-of-3">
+                    <!-- html has am element designed precisely to inclue quote into hmtl document, which the element is called block quote. -->
+                <blockquote>
+                    Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver.
+                    Now that I got used to it, I couldn't live without my daily meals!
+                    <!-- yet the another element is called site element, where we will put the name of the person, who express his opinion -->
+                    <cite>
+                        <!-- now besides this text, we also have the image of the person, which we also can include in the cite element. -->
+                        <!-- so inside of the blockquote usually go with the text, 
+                             and then the cite element where we will put the author of this text.  -->
+                        <img src="resources/img/customer-1.jpg">
+                        Alberto Duncan
+                    </cite>
+                </blockquote>
+
+                </div>
+
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon,
+                        but no one comes even close to Omifood. Me and my family are so in love!
+                     <!-- yet the another element is called site element, where we will put the name of the person, who express his opinion -->
+                        <cite>
+                            <!-- now besides this text, we also have the image of the person, which we also can include in the cite element. -->
+                            <img src="resources/img/customer-2.jpg">
+                            Joana Silva
+                        </cite>
+                    </blockquote>
+                </div>
+
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. 
+                        Best food delivery serv
+                        ice in the Bay Area. Keep up the great work!
+                        <!-- yet the another element is called site element, where we will put the name of the person, who express his opinion -->
+                        <cite>
+                            <!-- now besides this text, we also have the image of the person, which we also can include in the cite element. -->
+                            <img src="resources/img/customer-3.jpg">
+                            Milton Chapman
+                        </cite>
+                    </blockquote>
+                </div>
+           </div>
+          </section>
+
+          <section class="section-plan js--section-plans" id="plans">
+                <div class="row">
+                    <h2>Sign up and pricing plans</h2>
+                </div>
+
+                <div class="row">
+                    <!-- you can also put the js--wp-4 besides this col span-1-of-3 class.
+                        It will work in the same way. -->
+                    <div class="col span-1-of-3 ">
+                        <!-- as we have 3 sections, so we will create 3 div here, for the price, details and sign up button. -->
+                        <!-- the plan box class will be used to make the plan box as wide as I wish, 
+                        which is only 90% with the white background color.
+                        and it is not possible to do this, by just formating this col or adding some box here. 
+                        hence the plan box is the best solution. -->
+                        <div class="plan-box js--wp-4 ">
+                            <div>
+                                <h3>Premium</h3>
+                            <!-- in this case, we have to attribute a class name to this paragraph
+                            as we have multiple paragraph, and with a class name, 
+                            it is the easiest way to select all the paragraph.  -->
+
+                            <!-- Now we want to style this per month text in a different ways. 
+                            we will use the another html element which is the span element.
+                            span has only one purpose, its purpose is only just appear inside the paragraph,
+                            and style some text in the different way than the rest. -->
+                                <p class="plan-price">399$ <span>/ month</span></p>
+                                <p class="plan-price-meal">That’s only 13.30$ per meal</p>
+                            </div>
+                       
+                            <div>
+                                <ul>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>1 meal every day</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Order 24/7</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Access to newest creations</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Free delivery</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-full">Sign up now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col span-1-of-3">
+                        <div class="plan-box">
+                            <div>
+                                <h3>Pro</h3>
+                                <!-- in this case, we have to attribute a class name to this paragraph
+                                as we have multiple paragraph, and with a class name, 
+                                it is the easiest way to select all the paragraph.  -->
+                                <p class="plan-price">149$ <span>/ month</span></p>
+                                <p class="plan-price-meal">That’s only 14.90$ per meal</p>
+                            </div>
+                        
+                            <div>
+                                <ul>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>1 meal 10 days/month</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Order 24/7</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Access to newest creations</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Free delivery</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-ghost">Sign up now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col span-1-of-3">
+                        <div class="plan-box">
+                            <div>
+                                <h3>Starter</h3>
+                                <!-- in this case, we have to attribute a class name to this paragraph
+                                as we have multiple paragraph, and with a class name, 
+                                it is the easiest way to select all the paragraph.  -->
+                                <p class="plan-price">19$ <span>/ meal</span></p>
+                                <!-- since this one is empty, hence we will add a space. 
+                                by just typing just a simple space will not do anything, 
+                                and we need to use a special character to do it. -->
+                                <p class="plan-price-meal">&nbsp</p>
+                            </div>
+                       
+                            <div>
+                                <ul>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>1 meal</li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Order from 8 am to 12 pm</li>
+                                    <li><ion-icon name="close" class="icon-small"></ion-icon></li>
+                                    <li><ion-icon name="checkmark" class="icon-small"></ion-icon>Free delivery</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <a href="#" class="btn btn-ghost">Sign up now</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+          </section>
+
+          <section class="section-form">
+              <div class="row">
+                <h2>We're happy to hear from you</h2>
+              </div>
+
+              <div class="row">
+                  <!-- form is like a group of input elements, and we have an html element where we need to put all of them
+                  and this element is called form element. 
+                  It need to have couple of attribute, one is method, but it is not relevant to us in this case,
+                  as it is needed when we send this form which will require a lot of programming and other languages,
+                  and we will not talk about this in this course. 
+                  Hence, in this course, we will only format this form, but we will not able to send anything from it.  -->
+
+                  <!-- The another attribute that we need to define is the action, which is like a link, 
+                       the action could be the script which handle how the form will be sent. -->
+
+                       <!-- we will use a php file, which will be a script, hosted on our server. 
+                       this script will be executed once the user clicks on the submit button.  -->
+                  <form method="post" action="mailer.php" class="contact-form">
+                      <!-- now we will fill our form with a couple of our elements, and we will put a couple of row here.
+                      and each of those row, we will then have our different input element. 
+                      So one column for the label, for example: name, email address, etc.
+                      and then one column for the input element. -->
+                    <div class="row">
+                        <!-- here is the special one, as we want one column to be bigger than the other one.  -->
+                        <!-- these two column together make the whole row, so one plus two makes the three, -->
+                        <div class="col span span-1-of-3">
+                        <!-- the id is created in the below column is because 
+                            here in the label we can use the for attribute and then put the name of the ID here, 
+                            which will then link the label with the input, which mean if we click on the label, the field will be automatically selected.
+                            and it only with on the text form and select element, it does not work in the check box and text area -->
+                            <label for="name">Name</label>
+                        </div>
+                        <!-- this col will be twice as wide as the col above. -->
+                        <div class="col span span-2-of-3">
+                            <!-- here we will put a little text box, and we will use the input the element, 
+                            and the type will be text. In each of those, we should also give those a name, cause the name will be used to send the form. I will also define the ID here which also is the name
+                            The another interesting is the place holder, the placeholder is the text appeared inside the text field
+                            before we write anything.  
+                            The last thing is we can just add this key word required.
+                            If we do so, the browser will not allow us to send the form without completing this field. 
+                            which is very handly. 
+                         -->
+                            <input type="text" name="name" id="name" placeholder="Your name" required >
+                        </div>
+                    </div>
+
+                    <div class="row">
+                       <div class="col span span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span span-2-of-3">
+                            <!-- the type is changed to email, there is one of the possible html input type, 
+                            and the browser will recognize that you need to write an email inside of it. -->
+                            <!-- The field is required, and only can be send if the valid email address is written in the field.  -->
+                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col span span-1-of-3">
+                             <label for="find-us">How did you find us?</label>
+                         </div>
+                         <div class="col span span-2-of-3">
+                            <!-- here is where we will use the drop down box.
+                            so drop down box is just a couple of options, where you can choose one from.  -->
+                            <select name="find us" id="find-us">
+                                <!-- each of the options we want here need to be defined by using the option element. -->
+                                <!-- the value here source then for the script, which will handle the form, 
+                                once the form is sent. which again we will not be able to do in this course.-->
+                                <option value="friends" >
+                                    Friends
+                                </option>
+                                
+                                <option value="search" selected >
+                                    Search engine
+                                </option>
+
+                                <option value="ad" >
+                                    Advertisment
+                                </option>
+
+                                <option value="other" >
+                                    Other
+                                </option>
+                            </select>
+                            
+                         </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col span span-1-of-3">
+                             <label for="news">Newsletter</label>
+                         </div>
+                         <div class="col span span-2-of-3">
+                             <input type="checkbox" name="news" id="news" checked> Yes, please
+                         </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col span span-1-of-3">
+                             <label>Drop us a line</label>
+                         </div>
+                         <div class="col span span-2-of-3">
+                            <textarea name="message" placeholder="Your message"></textarea>
+                         </div>
+                     </div>
+                     <!-- Here is where we will put the button. -->
+                     <div class="row">
+                        <div class="col span span-1-of-3">
+                            <!-- we dont want anything here, because we want the button to be aligned with the field of this form.4
+                                 Hence, we will use a &nbsp special character, so that we have an invisible space there. -->
+                             <label>&nbsp;</label>
+                         </div>
+                         <div class="col span span-2-of-3">
+                            <input type="submit" value="Send it!">
+                         </div>
+                     </div>
+                  </form>
+              </div>
+
+          </section>
+
+          <footer>
+              <div class="row">
+                    <div class="col span-1-of-2">
+                        <ul class="footer-nav">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">iOS App</a></li>
+                            <li><a href="#">Android App</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col span-1-of-2">
+                        <ul class="social-links">
+                            <li><a href="#"><ion-icon name="logo-facebook" class="btn-facebook"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-twitter" class="btn-twitter"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-google" class="btn-google"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-instagram" class="btn-instagram+   "></ion-icon></a></li>
+                        </ul>
+                    </div>
+              </div>
+
+              <div class="row">
+                    <p>Copyright &copy; 2015 by Omnifood. All right reserved.</p>
+              </div>
+          </footer>
+        
+            <script src=https://cdn.jsdelivr.net/npm/respondjs@0.3.0/lib/respond.min.js> </script>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <!-- in this case, this is in our computer, and it is the one we just create,
+                 which is inside the resources folder and the script.jse -->
+            <script src="vendors/js/jquery.waypoints.min.js"> </script>
+            <script src="vendors/js/jquery.waypoints.js"></script>
+            <script src="resources/js/script.js"> </script>
+    </body>   
+    
+</html>
+
+<!-- Section 8: Footer
+Title: None
+
+Navigation:
+1. About us
+2. Blog
+3. Press
+4. iOS App
+5. Android App
+
+Also include links to facebook, twitter, google+ and Instagram accounts. -->
+
+
+
+
+
+

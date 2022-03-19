@@ -1,0 +1,234 @@
+/* the last one which will target the ipad and other devices that smaller than computer
+the reason is our row is defined as 1140px, so I want the wesite to change it looks when it get close to that value.
+so that we always have some margin at the right and the left side.  */
+
+/* Big tablet to 1200 pixels (width tablets smaller than the 1140px row)  */
+@media only screen and (max-width: 1200px) {
+  .hero-text-box {
+    /* position: absolute; */
+    /* in order to create some space between the text and the browser.
+        we will create the padding on the left and the right side */
+    padding: 0 2%;
+    width: 100%;
+    /* top: 50%;
+        left:50%;  */
+    /* This is to translate the element half of its width and its height. Up and to the left.   */
+    /* transform: translate(-50%,-50%); */
+  }
+
+  .row {
+    padding: 0 2%;
+  }
+}
+
+/* this will target the ipad in the portrait mode, which ahs 768 pixels.
+and again the reason for the value giben 1024 here is that the ipad in the landscape view has 1024 pixels , 
+which will be the next media queries.  */
+
+/* from small tablet to big tablet. from 768 pixels which is the ipad to 1023 pixels. */
+@media only screen and (max-width: 1023px) {
+  /* now it come very handly when we define all the font size across the entire web pages in percentages, 
+    which mean all the font sizes are based on the base font size. So now the current is 20, and then we will decrease it to 18px, 
+    and now all the font sizes will automatically decrease  */
+  body {
+    font-size: 18px;
+  }
+  /* since now we are now on the smaller devices, we will need to change the padding of the sections as well. 
+    The original padding is 80px top and bottom and we will change it to 60px top and bottom. */
+  section {
+    padding: 60px 0;
+  }
+
+  .long-copy {
+    /* here we will increase the width of the paragraph from 70% to 80% and also the margin left need to be decreased as well. */
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .steps-box {
+    /* we will remove some of the white space so we will decrease the margin top. */
+    margin-top: 10px;
+  }
+
+  .steps-box:last-child {
+    /* text-align: left; */
+    margin-top: 10px;
+    /* padding-left: 3%; */
+  }
+  .works-step {
+    margin-bottom: 40px;
+  }
+  .works-step:last-of-type {
+    margin-bottom: 60px;
+  }
+
+  /* here we will increase the width of the app screen from 40% to 50%. */
+  .app-screen {
+    width: 50%;
+  }
+  .icon-small {
+    width: 17px;
+    margin-right: 5px;
+  }
+
+  .city-feature {
+    font-size: 90%;
+  }
+
+  .plan-box {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .plan-price {
+    font-size: 250%;
+  }
+  .contact-form {
+    width: 80%;
+  }
+}
+
+/* 
+The rule inside this declaration block will apply, when the width of the browser is less than or equals to 767px.
+and this value is because the width of the ipad is 748, so we want this media queries to target all the phone
+which are smaller than the ipad, and then the next media queries will target the ipad and of course other tablets as well. */
+
+/* small phone to small tablet. from 481px to 767px */
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 30px 0;
+  }
+
+  .row,
+  .hero-text-box {
+    padding: 0 4%;
+  }
+
+  /* the width of all the column is 100%, which mean the column will no longer be side bu side, but stack on top of each other. */
+  .col {
+    width: 100%;
+    margin: 0 0 4% 0;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-nav-icon {
+    display: inline-block;
+  }
+
+  .main-nav {
+    float: left;
+    /* here we will reduce the margin top from 55 to 25*/
+    margin-top: 30px;
+    margin-left: 25px;
+  }
+
+  /* now we want the element no longer side by side but one under the another.
+     so will display as block and no longer as inline block as before, so they will now force line break 
+     and so we have all those links stacked on one another. */
+  .main-nav li {
+    display: block;
+  }
+
+  .main-nav li a:link,
+  .main-nav li a:visited {
+    display: block;
+    /* as the mobile phone does not have any hover, so we dont need the hover affect 
+     and so without the hover affect, the border will be not needed. */
+    border: none;
+    padding: 10px 0;
+    font-size: 100%;
+  }
+
+  .sticky .main-nav {
+    margin-top: 10px;
+  }
+
+  .sticky .main-nav li a:link,
+  .sticky .main-nav li a:visited {
+    padding: 10px 0;
+  }
+
+  /* .sticky .mobile-nav-icon:link,
+   .sticky .mobile-nav-icon:visited{
+       margin-top: 10px;
+   } */
+
+  .sticky .mobile-nav-icon {
+    margin-top: 10px;
+  }
+  .sticky .mobile-nav-icon i {
+    color: black;
+  }
+  /* .sticky .mobile-nav-icon ion-icon{
+     color: black;
+   } */
+
+  h1 {
+    font-size: 180%;
+  }
+
+  h2 {
+    font-size: 150%;
+  }
+  .long-copy {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .app-screen {
+    width: 40%;
+  }
+
+  .steps-box:first-child {
+    text-align: center;
+  }
+
+  .works-step div {
+    /* color: #e67e22;
+    border: 2px solid #e67e22; */
+    /* display: inline-block;
+    border-radius: 50%; */
+    height: 40px;
+    width: 40px;
+    /* text-align: center; */
+    padding: 4px;
+    /* float: left; */
+    font-size: 120%;
+    margin-right: 15px;
+  }
+
+  .works-step {
+    margin-bottom: 20px;
+  }
+  .works-step:last-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+/* 
+The rule inside this declaration block will apply, when the width of the browser is less than or equals to 480px.
+and normally this the width of the old iphone like the iphone4, iphone 5 etc. */
+/* 
+small phone from 0px to 480px. */
+@media only screen and (max-width: 480px) {
+  section {
+    padding: 25px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+/* we will need the google chrome developer tools,and the reason is if we resize the window, it will show us the size of the window. 
+we also can see how the defined rule works, and how the media queries apply.
+we can also change the style property which fit the smaller breakpoints,
+which will make the element defined look more adequate to the device or the browser width.
+ */

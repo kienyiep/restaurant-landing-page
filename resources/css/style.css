@@ -1,0 +1,860 @@
+/*----------
+orange color: #e67e22;
+------------*/
+
+/*----------
+basic setup
+------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* this will make our font rendering in a perfect way */
+html,
+body {
+  background-color: #fff;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+/* As the step section start where the meal section should start. This is because of the float. 
+As when the float is defined, you have to clear it, but in our case, we did not clear the float. 
+so the section meal actually has 0 pixel height. */
+/* the class will clear the float after the element. */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/*----------
+Reusablee components
+------------*/
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+  /* margin: 0,auto,0,auto; */
+}
+/* 
+Here is where we will put the whie space between the section using padding.
+The padding is used instead of margin to put the space between the element.
+As the, we will plan to have some section with the background color,
+and in order to preserve that background color,
+we need to ensure that the space is inside of each boxes.*/
+section {
+  padding: 80px 0;
+}
+
+.box {
+  padding: 1%;
+}
+/*----------
+  Headings
+------------*/
+h1,
+h2,
+h3 {
+  /*
+  
+
+    color: #fff; */
+  /* In the responsive web design, we want everything to be relative. 
+    For example, we can say that our font size should be 200%, 
+    and then this mean that our heading element will be 40 pixels, 
+    which is exactly 200% of the 20 pixels. 
+    So we later change if we change the html global font size, 
+    then font size for the heaading will be automatically decreased as well.
+    we will then use this method for all other elements in the web page.
+    So it will all defined relatively to the base size of the html */
+  /* font-size: 240%; */
+  /* the default font weight of the h1 element is big, so we will put it smaller */
+  font-weight: 300;
+  text-transform: uppercase;
+  /* letter-spacing: 1px; */
+  /* word-spacing: 4px; */
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 240%;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/* Here is where we will put some content on a website with just css, 
+so we do that using the after pseudo class. 
+After is just some stuff that will appear after the h2, such as the name and indicate */
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  /* one important thing is after you specify do a pseudo class, you will need to specify its content. 
+ In this case, we dont any word to appear, so we just put the space.*/
+  content: " ";
+  /* The width of the line of the box will be another pixel. */
+}
+
+/*----------
+  Paragraph
+------------*/
+.long-copy {
+  /* Based in the typography that we learned on the lecture, the line height should be between 120 and 145%. */
+  line-height: 145%;
+  /* once the width 70%, the new problem is it will be no longer to be center. 
+  The solution is we can put margin left 15%.
+  As the total width will be 100%. If we want to center it, the remaining 30% should be centered to the both side.
+  so 15% percent left, 15% right, plus the 70% width, which will 100%. */
+  width: 70%;
+  margin-left: 15%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/*----------
+  Icons
+------------*/
+.icon-big {
+  font-size: 350%;
+  display: inline-block;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+.icon-small {
+  display: inline-block;
+  width: 20px;
+
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  margin-right: 10px;
+  /* secret to align text and icons */
+  line-height: 120%;
+  vertical-align: middle;
+  /* here is the negative margin, which does the oppositive thing of the positive margin. 
+  so a positive margin give us space, while negative margin takes space away.  */
+  margin-top: -6px;
+}
+
+/*----------
+  Links
+------------*/
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 2px solid #e67e22;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 2px solid transparent;
+}
+
+/*----------
+  Buttons
+------------*/
+
+/* since we want to add a submit button which look exactly same as these buttons.
+Hence we can just add a line here, and then they will be styled in the same way.
+we will also add a line below the btn-full, so that the btn submit will look exactly like the full button,
+and also place the line below the btn-hover, active, so that we have the hover affect.*/
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 30px;
+  /* text-transform: uppercase; */
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+  /* color: #fff; */
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+  background-color: #e67e22;
+  border: 1px solid #e67e22;
+  color: #fff;
+  margin-right: 15px;
+}
+
+/* The button ghost will be bigger than the btn full, this is because if you remember the box model, 
+the height and the width of the element is the content plus the padding plus the border. 
+Hence the btn ghost will be higher as it has the one pixel border. 
+The solution is we will put the border inside the btn full as well so that both button can achieve same height.
+  */
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #e67e22;
+  color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #cf6d17;
+  color: #fff;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #e67e22;
+  color: #fff;
+}
+
+/*----------
+Reusablee components
+------------*/
+
+header {
+  /* To make the image darker we can put the linear gradient on top of the image.
+  So this is like using 2 background image at the same time  */
+
+  /*------------------------------------------------------------------------------------------
+   since we dont want a color actually, we want just a color, we make it from black to black,
+   so from one color to the same color, and since we dont want a complete black, 
+   we will use the transparency here, and we will use the 70% transparency.
+   so now we have 70% transparent black color which is on top of the hero image here.  
+   -------------------------------------------------------------------------------------------*/
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(img/hero.jpg);
+  /* The problem is the image only fill the part that has the content. 
+  So the solution is we will make the header as high as the viewport, to fill the whole viewport with the image
+  So we will set the height of the header elemtent.
+  we just set it to 100vh, which mean it is 100% of the viewport.  */
+
+  /* when the image is way too zoom in, we want the image to fill the whole width of the browser
+     hence we will use the background size and position to see the whole image. */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+/* This box will be the absolute positioned box, which will not use the responsive fluid grid. 
+ Because this is the only way we can vertically and horizontally center it */
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  /* these 40% and 50%, they are in relation to the parent element, so 50% of the parent element is where the text box was located to the left side. But on the transform here, when we translated, this is in relation to the element itself. And this make it possible that the element is exactly at the center. 
+   */
+  top: 40%;
+  left: 50%;
+  /* This is to translate the element half of its width and its height. Up and to the left.   */
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+/* 
+the difference here is I want the logo black to be hidden, so we say display none,
+so this image will then be not displayed in the normal state. */
+
+.logo-black {
+  height: 50px;
+  width: auto;
+  float: left;
+  margin: 5px 0;
+  display: none;
+}
+
+/* main navi*/
+.main-nav {
+  float: right;
+  list-style: none;
+  /* to get rid of those bullet points, we say list style none. */
+  margin-top: 55px;
+}
+/* To select the li element inside this, So we write main navigation, 
+and we want to select all the li element. */
+.main-nav li {
+  /* we will change the block element to inline block so that they can side by side */
+  display: inline-block;
+  margin-left: 40px;
+}
+
+/* Here we will go even further down, and say main nav, 
+then we want to select the li elements inside of main nav, 
+and then the a element inside of each of the li.  */
+.main-nav li a:link,
+.main-nav li a:visited {
+  color: #fff;
+  /* text-decoration: none; */
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  /* As we some more space between the line and the text, we can specify the padding for the link.
+  The padding is an inside space, space inside the box, which goes between the content and the border 
+  so we will add some 8 padding to the bottom and also to the top, and 0 px to the left and right. */
+  padding: 8px 0px;
+  /* As we want this to be 18px, and we want this to be relative,
+  hence we devide the 18px by this base text size which is 20, 
+  and the result is 0.9, which is 90% */
+  font-size: 90%;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  /* Now for this border to be happen, 
+  we need this border to exist before we actually hover it,
+   but since we dont want see it , we make it transparent.
+   So it will not be visible until we actually hover it.  */
+  border-bottom: 2px solid #e67e22;
+}
+
+/* Mobile navi*/
+
+.mobile-nav-icon {
+  float: right;
+  margin-top: 30px;
+  /* here we need a cursor to show up as a pointer.  */
+  cursor: pointer;
+  display: none;
+}
+
+/* .mobile-nav-icon ion-icon{
+  font-size: 200%;
+  color: #fff;
+} */
+.mobile-nav-icon i {
+  font-size: 200%;
+  color: #fff;
+}
+
+/* sticky navi*/
+
+.sticky {
+  /* so far we have absolute and relative position, and now we will add a new one here which is called fixed. */
+  /* with the fiexd, the navigation stays always on the same point irrespective of our scrolling.
+  and we want this start on the top and on the left corner, so top left corner.  */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* we will set background color with little transparency so you can see the content beneath it.
+     this is almost no opacity.   */
+  background-color: rgba(255, 255, 255, 0.98);
+
+  /* for the shadow, we will say 0 pixel for the x axis which is horizontal, and 2 px for the y axis which is vertical
+  2 px blur and then color is subtle grey.  */
+  box-shadow: 0 2px 2px #efefef;
+  /* the z index define the vertical stacking of the elements */
+  /* so it is like a stack of element and now our sticky element will always stay on top.
+     which mean this element will always be on top of all other element because it has the highest possible value here. */
+  z-index: 9999;
+}
+/* 
+I want these style to apply only if this class is inside the sticky class, and then we have main nav inside the sticky class.  */
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  color: #555;
+  /* text-decoration: none;
+  text-transform: uppercase; */
+  /* border-bottom: 2px solid transparent; */
+  /* As we some more space between the line and the text, we can specify the padding for the link.
+  The padding is an inside space, space inside the box, which goes between the content and the border 
+  so we will add some 8 padding to the bottom and also to the top, and 0 px to the left and right. */
+  padding: 16px 0px;
+  /* As we want this to be 18px, and we want this to be relative,
+  hence we devide the 18px by this base text size which is 20, 
+  and the result is 0.9, which is 90% */
+  /* font-size: 90%;  */
+  /* transition: border-bottom 0.2s; */
+}
+
+/* here is where we will hide the white logo, when the white logo is inside the sticky navigation */
+
+.sticky .logo {
+  display: none;
+}
+
+/* this is defined when the logo black inside the sticky navigation, then it should be displayed as a block,
+which is no longer hidden. */
+.sticky .logo-black {
+  display: block;
+}
+
+.sticky .main-nav {
+  /* float:right;
+  list-style: none; */
+  /* to get rid of those bullet points, we say list style none. */
+  margin-top: 18px;
+}
+
+/*----------
+FEATURES
+------------*/
+/* As I dont want to put the margin to all the long copy class element that we use throughout the website. 
+Hence, I will said where thel long copy class inside of the section features.  */
+.section-features .long-copy {
+  margin-bottom: 30px;
+}
+/*----------
+MEALS
+------------*/
+
+.section-meals {
+  /* since there is a huge distance between the current section and the previous section, which does not look natural
+  this is because this section is lke other section as well, which has aa big padding. 
+  Hence, we will put the current section padding to be 0, as we dont want the current section to have padding 
+  because it is a different section, and it does not have the title and etc.  */
+  padding: 0;
+}
+.meals-showcase {
+  /* since this is a list and we dont want bullet point we say list style none */
+  list-style: none;
+  /* since we want this to be the entire browser width, hence I will said width 100%. */
+  width: 100%;
+}
+
+.meals-showcase li {
+  display: block;
+  float: left;
+  /* As we have list with 100% with, and we will want 4 element inside of this to show side by side with the full width.
+  I have 4 li elements, therefore each of them has to be 25% wide. Because 4 times 25 makes 100%*/
+  width: 25%;
+}
+/* 
+this element with the class meal photo with the 100%, mean just that it has the exact width of its parent which is meal showcase li.
+we have also to say that it is a margin 0. You may be curious about the margin as we already do it at the beginning.
+ But as the normalize will define some margin to the element so we have to overwrite that specifically.  */
+.meal-photo {
+  width: 100%;
+  margin: 0;
+  /* when the image is bigger than the browser, 
+  which mean the image is bigger than the container which is the meal photo, which is not what we want.
+  so now the image is kind of overflow its conteiner
+  To solve this we use the property called overflow, and then set hidden, then the overflow will not be visible.
+  we can see the part of the image is still inside the container. */
+  overflow: hidden;
+  background-color: #000;
+}
+.meal-photo img {
+  /* the image will be kind of white as the background is white.
+  So if we want to make this darker, we just need to put the background of the image to be black.
+  since this image is now opaque, it will get darker.   */
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
+  /* we will scale the image to 1.15, which mean the image will be 115% bigger instead of 100%. */
+  transform: scale(1.15);
+  /* I also want to animate the transformation. */
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.meal-photo img:hover {
+  /* now what we want tis to change the transform property when we hover the image, 
+  however when we scale it to one, thew is white little line at the image below. 
+  so instead of scaling to one, I will just scale to 1.03*/
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/*----------
+HOW IT WORKS
+------------*/
+/* .steps-box{
+margin-top: 30px;
+} */
+
+/*Now we need to select each of the boxes individually.
+ Hence we will use new kind of selector.
+ which is the zero class, first child
+ this will select the first of these steps box, which is the left one.
+ while the last child will select the right one.
+ so these two classes are very useful zero classes. 
+ In the course e book, you can find the link to an article, 
+ which has 30 useful selector which include this one.
+ */
+
+/* we will create a good way to seperate different section.
+ hence we will add a subtle background color to this section */
+
+.app-screen {
+  width: 40%;
+}
+.section-steps {
+  background-color: #f4f4f4;
+}
+
+.steps-box {
+  margin-top: 30px;
+}
+
+.steps-box:first-child {
+  /* eventhough we dont have any text here, 
+   but the text align property doesn't only work on text.
+   but it will work for all inline or inline block element. 
+   and the image is one of those inline block element.  */
+  text-align: right;
+  padding-right: 3%;
+}
+
+.steps-box:last-child {
+  text-align: left;
+  margin-top: 70px;
+  padding-left: 3%;
+}
+
+.works-step {
+  margin-bottom: 50px;
+}
+/* 
+the last-of-type is actually similiar to the last-child, 
+but we will use it just to know the existance of the last-of-type. */
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.works-step div {
+  color: #e67e22;
+  border: 2px solid #e67e22;
+  /* the display is inline block to ensure the element does not force a line break. 
+     so that the number can be side by side with the text  */
+  display: inline-block;
+  border-radius: 50%;
+  /* if we want it to be circle, the px of the height must be same as the width. */
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  padding: 5px;
+  float: left;
+  font-size: 150%;
+  margin-right: 25px;
+}
+.btn-app:link,
+.btn-app:visited {
+  border: none;
+}
+
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-left: 10px;
+}
+
+/*----------
+CITIES
+------------*/
+
+.box img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+.city-feature {
+  margin-bottom: 5px;
+}
+
+/*----------
+TESTIMONIALS
+------------*/
+
+.section-testimonials {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(img/back-customers.jpg);
+  background-size: cover;
+  color: #fff;
+  /* the image always stay on the same place, when we scroll our website. */
+  background-attachment: fixed;
+}
+
+blockquote {
+  /* we will want a padding as the boxes are too close each other. */
+  padding: 2%;
+  /* we can add the italic font style becasue we already incorporated the italic style for the google fonts.
+   So whenever you need italic in your website, you need to include that web font.*/
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+/* this time we will use the before pseudo class, as we want to put the quotation be fore the block quote. 
+   In order to put the quotation mark, we have to use something called ISO special character, which can be found in other link.*/
+blockquote:before {
+  content: "\201C";
+  font-size: 500%;
+  display: block;
+  /* Now in order to position this exactly where we wanted, we need to define the top and left attribute.
+because it is the easiest way to change it around by using absolute positioning. */
+  /* 
+one thing very important is if we want to make this absolute position, we will make the parent has a relative position, 
+otherwise we wont see the result.  */
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+
+  display: block;
+}
+
+cite img {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.section-plan {
+  background-color: #f4f4f4;
+}
+
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  /* As the remaining wifth is 10%, hence the left margin will be 5% which is half of the remaining 10% from 90% to 100%. */
+  margin-left: 5%;
+  /* here is where we will add a nice box shadow to the entire box. 
+     Now the first value is the x axis offset, then the second is the y axes off set, and then blur, and then the last value colour*/
+  box-shadow: 0 2px 2px #efefef;
+  /* box-shadow: 0 2px 2px #cecece; */
+}
+
+.plan-box div {
+  padding: 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #e67e22;
+}
+
+/* here is where we will format the span in the different way. */
+/* Now this span is the child of the plan price above, which has the font size 300%. 
+if we would size equal 100%, this 100% would not be the base size of 20 pixels, 
+but it is the base size of the 300% because it is the parent font size.
+so if we want a smaller font size, we will need to choose a smaller number,
+for instance 30%. So we have 30% of this 300%, and not of the initial 20 pixels.  */
+.plan-price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+
+.plan-price-meal {
+  font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+}
+
+/* here is where we will add the white space between those list elements.
+   hence we can say we want a 5 pixels padding at the top and at the bottom of each of those elements.
+   and none on the side. */
+.plan-box ul li {
+  padding: 5px 0;
+}
+
+/* the first child should have a nice background color
+the secret here is very subtle. we want to make a difference,
+but a difference that doesn't pop out so much.
+we want to be subtle, because that is a great way of doing beautiful design.  */
+.plan-box div:first-child {
+  background-color: #fcfcfc;
+}
+
+.plan-box div:last-child {
+  text-align: center;
+  border: 0;
+}
+/*----------
+  FORM
+------------*/
+.contact-form {
+  width: 60%;
+  /* we clearly dont need the entire width of the parent element of this row here
+  cause there is way too much space between the labels and the elements. */
+  /* in this case, we want to center the form, we can either use the margin left 20%, 
+  which is the half between the 100 and 60. but in this case, we will format it in other way. */
+  margin: 0 auto;
+}
+
+/* here is where we will format other form elements. */
+
+/* for the input element, we dont need the button and the checkbox to fill the whole content.
+  In fact we only want the name and the email to fill the whole content. 
+   Hence, we want the type text and the type email. */
+/* with this new selector, we can select all the input element which has the type text. 
+   and then we can say the same thing with email, which will exclude the button and the checkbox.*/
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+/* here is where we will get rid of those borders when we fokus on those elements.
+and the best way of doing that is to get rid of it for all elements. 
+ to do so we will use the zero class called fokus.  */
+
+*:focus {
+  outline: none;
+}
+
+footer {
+  background-color: #333;
+  padding: 50px;
+  font-size: 80%;
+}
+
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+
+.social-links {
+  list-style: none;
+  float: right;
+}
+
+/* when we inspect the element, we will see that there are some space between the last icon and the end of the row
+so the icon is not all the way to the right side of the row because of the margin right 20px that we defined.
+Hence we will use the last child pseudo class to set either margin or margin right to 0 */
+.footer-nav li,
+.social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav li :last-child,
+.social-links li :last-child {
+  margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+  border: none;
+  text-decoration: none;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+  color: #ddd;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  font-size: 160%;
+}
+
+.btn-facebook:hover {
+  color: #3b5998;
+}
+
+.btn-twitter:hover {
+  color: #00aced;
+}
+
+.btn-google:hover {
+  color: #dd4b39;
+}
+
+.btn-instagram:hover {
+  color: #517fa4;
+}
+
+footer p {
+  text-align: center;
+  color: #888;
+  margin-top: 30px;
+}
+
+/* 
+To trigger the animation fade in, the class need to be invisible first, otherwise it is impossible to have the fade in animation
+as it is already visible. 
+Hence the solution is we will set the opacity to 0, so that that element is not visible
+
+and then once the .js--wp-1 class also has the animated class, then we want the opacity back to 1.
+To do so, we will use the end selector, which mean we will have the .js--wp-1 and the animated class at the same time
+so that the fade in would be animated inside the -js--wp-1 class.  */
+
+/*----------
+  Animations
+------------*/
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+  opacity: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.js--wp-4 {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.js--wp-1 .animate__animated,
+.js--wp-2 .animate__animated,
+.js--wp-3 .animate__animated {
+  opacity: 1;
+}
